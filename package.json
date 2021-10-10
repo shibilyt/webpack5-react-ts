@@ -4,8 +4,8 @@
   "description": "A webpack boilerplate to use for react projects. Includes babel, eslint, prettier, jest and more.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --config config/webpack.config.js --mode development",
-    "build": "webpack --config config/webpack.config.js --mode production"
+    "start": "webpack serve --config config/webpack.config.js --env env=dev",
+    "build": "webpack --config config/webpack.config.js --env env=prod"
   },
   "keywords": [
     "webpack"
