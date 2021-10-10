@@ -13,6 +13,9 @@
   "author": "Mohammed Shibily",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "babel-loader": "^8.2.2",
     "html-webpack-plugin": "^5.3.2",
     "webpack": "^5.58.1",
     "webpack-cli": "^4.9.0",
