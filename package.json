@@ -4,7 +4,8 @@
   "description": "A webpack boilerplate to use for react projects. Includes babel, eslint, prettier, jest and more.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack serve --config config/webpack.config.js --mode development",
+    "build": "webpack --config config/webpack.config.js --mode production"
   },
   "keywords": [
     "webpack"
@@ -12,8 +13,10 @@
   "author": "Mohammed Shibily",
   "license": "MIT",
   "devDependencies": {
+    "html-webpack-plugin": "^5.3.2",
     "webpack": "^5.58.1",
     "webpack-cli": "^4.9.0",
-    "webpack-dev-server": "^4.3.1"
+    "webpack-dev-server": "^4.3.1",
+    "webpack-merge": "^5.8.0"
   }
 }
