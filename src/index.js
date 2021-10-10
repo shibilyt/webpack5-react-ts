@@ -1,3 +1,4 @@
-console.log('hello world')
+import * as ReactDOM from "react-dom";
+import App from "./App";
 
-console.log('yes we are on a roll')
+ReactDOM.render(<App />, document.getElementById("app"));
