@@ -9,7 +9,7 @@ const envConfig = {
   prod: prodConfig,
 };
 const config = ({ env }: { env: "prod" | "dev" }): Configuration => {
-  return merge(commonConfig, envConfig[env]);
+  return merge(envConfig[env], commonConfig);
 };
 
 export default config;

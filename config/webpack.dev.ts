@@ -5,6 +5,14 @@ import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 const config: Configuration = {
   mode: "development",
   devtool: "cheap-module-source-map",
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [],
+      },
+    ],
+  },
   plugins: [new HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin()],
   devServer: {
     static: {

@@ -13,6 +13,18 @@ const config: Configuration = {
         exclude: /node_modules/,
         use: ["babel-loader"],
       },
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: "css-loader",
+            options: {
+              import: true,
+            },
+          },
+          "postcss-loader",
+        ],
+      },
     ],
   },
   resolve: {
