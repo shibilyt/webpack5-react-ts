@@ -9,7 +9,7 @@ const config: Configuration = {
     rules: [
       {
         test: /\.css$/i,
-        use: [],
+        use: ["style-loader"],
       },
     ],
   },

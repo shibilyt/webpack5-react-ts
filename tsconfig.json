@@ -21,7 +21,8 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "removeComments": true
+    "removeComments": true,
+    "typeRoots": ["./node_modules/@types", "./src/@types"]
   },
   "exclude": [
     "node_modules",

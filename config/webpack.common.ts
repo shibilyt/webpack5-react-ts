@@ -9,20 +9,63 @@ const config: Configuration = {
   module: {
     rules: [
       {
-        test: /\.(ts|js)x?$/i,
-        exclude: /node_modules/,
-        use: ["babel-loader"],
-      },
-      {
-        test: /\.css$/i,
-        use: [
+        oneOf: [
           {
-            loader: "css-loader",
-            options: {
-              import: true,
+            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+            type: "asset",
+            parser: {
+              dataUrlCondition: {
+                maxSize: 10000,
+              },
             },
           },
-          "postcss-loader",
+          {
+            test: /\.svg$/,
+            use: [
+              {
+                loader: require.resolve("@svgr/webpack"),
+                options: {
+                  prettier: false,
+                  svgo: false,
+                  svgoConfig: {
+                    plugins: [{ removeViewBox: false }],
+                  },
+                  titleProp: true,
+                  ref: true,
+                },
+              },
+              {
+                loader: require.resolve("file-loader"),
+                options: {
+                  name: "assets/[name].[hash].[ext]",
+                },
+              },
+            ],
+            issuer: {
+              and: [/\.(ts|tsx|js|jsx|md|mdx)$/],
+            },
+          },
+          {
+            test: /\.(ts|js)x?$/i,
+            include: path.resolve(__dirname, "..", "src"),
+            use: ["babel-loader"],
+          },
+          {
+            test: /\.css$/i,
+            use: [
+              {
+                loader: "css-loader",
+                options: {
+                  import: true,
+                },
+              },
+              "postcss-loader",
+            ],
+          },
+          {
+            exclude: [/^$/, /\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
+            type: "asset/resource",
+          },
         ],
       },
     ],
